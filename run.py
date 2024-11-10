@@ -61,7 +61,7 @@ def calculate_daily_statistics(max_games_per_day, max_players_per_day):
     total_minutes = hours_per_day * 60
 
 
-    for i, games in enumerate(max_game_per_day):
+    for i, games in enumerate(max_games_per_day):
         if games > 0:
             avg_game_time = total_minutes / games #average time per game
         else:
@@ -71,9 +71,9 @@ def calculate_daily_statistics(max_games_per_day, max_players_per_day):
         daily_rewards = games * 10   # 10 per game won
 
         print(f"Day {i+1}:")
-        print(f"  Average game time: {avg_game_time:.2f} minutes")
-        print(f"  Muffins given: {muffins_per_day}")
-        print(f"  Total dollars awarded: ${daily_rewards}")
+        print(f"Average game time: {round(avg_game_time)} minutes")
+        print(f"Muffins given: {muffins_per_person}")
+        print(f"Total dollars awarded: ${daily_rewards}")
 
 # Execute the calculations
 games_data = get_games_data()
