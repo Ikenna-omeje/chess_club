@@ -45,7 +45,7 @@ def get_games_data():
 
     return players_data
 
-    """
+    
 
 def validate_data(values):
     
@@ -71,34 +71,46 @@ def validate_data(values):
 
     """
     Get games info from the data
-    """
+    
      games = SHEET.worksheet('games')
     data = games.get_all_values()
 
     print(data)  # Display games data
     return data
-   
+   """
 
-def max_all_studio_players():
+def calculate max totals(players_data, games_data):
     """
-    cal maximum amount of studio players per day and 
-    maximum for a week
+    cal maximum amount of studio players per day and for a week
+    cal maximum amount of games per day and for a week
+
     """
-    players = SHEET.worksheet('players').get_all_values()[-7:]
+    #total for players in a day an week
 
-    total_players_per_day = [max(map(int, day)) for day in players]
+    max_players_per_day =[max(day) for day in players_data]
 
-    max_players_week = sum(total_players_per_day)
+    max_games_per_day = [max(day) for day in games_data]
 
-    print(f"Maximum players visiting in a week: {max_players_week}")
+
+    #totals for games in a day and a week
+
+    total_max_player_per_day = sum(max_players_per_day)
+
+    total_max_games_week = sum(max_games_per_day)
+
+    print(f"Maximum players per in a week:", max_players_per_day)
+    print(f"maximum games per day:", max_games_per_day)
+    print(f"total max game per week:", total_max_games_per_day)
+    print(f"total maximum players per week:", total_max_player_per_day) 
+
     
     return max_players_week
 
-"""
+
     #fetch game data and cal maximum game played in a week
 players_data = get_players_data()
 max_studio_players(players_data)
-"""
+
 
 
 def max_studio_games(games_data):
