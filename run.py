@@ -27,6 +27,26 @@ def get_games_data():
     #converting strings to integers
     return [[int(num)for num in row] for row in games]
 
+def input_new_data():
+    """
+    Allows new user to enter new player and game
+    data for one day.
+    """
+    print("Enter players'and game data for a single day.")
+    print("Data should be four numbers separated by commas.")
+    print("Example: 10,20,30,40\n")
+    
+
+    #input single player data
+    player_data_input = input("enter player data here: ")
+    player_data = [int(num) for num in player_data_input.split(',')]
+
+    #input single games data
+    game_data_input = input("enter game data here: ")
+    game_data = [int(num) for num in game_data_input.split(',')]
+
+    return [player_data], [game_data]
+
 
 def calculating_max_totals(players_data, games_data):
     """
@@ -76,8 +96,13 @@ def calculate_daily_statistics(max_games_per_day, max_players_per_day):
         print(f"Total dollars awarded: ${daily_rewards}")
 
 # Execute the calculations
-games_data = get_games_data()
-players_data = get_players_data()
+new_data_choice = input("Would you like to input new data? (yes/no): ").strip().lower()
+
+if new_data_choice == "yes":
+    players_data, games_data = input_new_data()
+else:
+    games_data = get_games_data()   
+    players_data = get_players_data()
 
 max_players_per_day, max_games_per_day, total_max_players_week, total_max_games_week = calculating_max_totals(players_data, games_data)
 
