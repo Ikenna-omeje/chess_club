@@ -41,11 +41,11 @@ def input_new_data():
     print("Example: 10,20,30,40\n")
 
     # input single player data
-    player_data_input = input("enter player data here: ")
+    player_data_input = input("enter player data here:\n")
     player_data = [int(num) for num in player_data_input.split(',')]
 
     # input single games data
-    game_data_input = input("enter game data here: ")
+    game_data_input = input("enter game data here:\n")
     game_data = [int(num) for num in game_data_input.split(',')]
 
     return [player_data], [game_data]
