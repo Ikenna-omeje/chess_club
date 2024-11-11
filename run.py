@@ -36,7 +36,7 @@ def input_new_data():
     Allows new user to enter new player and game
     data for one day.
     """
-    print("Enter players'and game data for a single day.")
+    print("Enter players and game data for a single day.")
     print("Data should be four numbers separated by commas.")
     print("Example: 10,20,30,40\n")
 
@@ -65,10 +65,10 @@ def calculating_max_totals(players_data, games_data):
     t_players_week = sum(players_day)
     t_games_week = sum(games_day)
 
-    print(f"Maximum players per in a week: {players_day}")
-    print(f"maximum games per day: {games_day}")
-    print(f"total max game week: {t_games_week}")
-    print(f"total maximum players week: {t_players_week}")
+    print(f" Number of players per week: {players_day}")
+    print(f" Number of games per day: {games_day}")
+    print(f" Maximum games played in a week: {t_games_week}")
+    print(f" maximum players week: {t_players_week}")
 
     return players_day, games_day, t_players_week, t_games_week
 
